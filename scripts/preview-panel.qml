@@ -29,8 +29,7 @@ Window {
             id: row
             anchors.centerIn: parent
             timeText: "14:32"
-            subLineMode: "lunar"
-            subText: "廿九"
+            subLineMode: "none"
         }
     }
 

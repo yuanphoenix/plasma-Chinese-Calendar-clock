@@ -8,6 +8,7 @@ Kirigami.FormLayout {
 
     property alias cfg_showSeconds: secondsCheck.checked
     property alias cfg_panelSubLine: subLineCombo.currentValue
+    property alias cfg_panelTimeScale: timeScaleCombo.currentValue
     property alias cfg_showFestivals: festivalsCheck.checked
     property alias cfg_showTerms: termsCheck.checked
     property alias cfg_showGanzhi: ganzhiCheck.checked
@@ -28,6 +29,18 @@ Kirigami.FormLayout {
             { text: "农历日（廿九）", value: "lunar" },
             { text: "公历日期（11月7日）", value: "solar" },
             { text: "不显示", value: "none" }
+        ]
+    }
+
+    QQC2.ComboBox {
+        id: timeScaleCombo
+        Kirigami.FormData.label: "面板字号："
+        textRole: "text"
+        valueRole: "value"
+        model: [
+            { text: "小", value: "small" },
+            { text: "标准", value: "normal" },
+            { text: "大", value: "large" }
         ]
     }
 

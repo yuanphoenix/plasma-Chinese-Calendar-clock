@@ -11,7 +11,7 @@ RowLayout {
     property string subText: ""
     property bool showSubLine: true
     property string subLineMode: "lunar"   // lunar | solar | none
-    property real timeScale: 1.35
+    property real timeScale: 1.15
 
     spacing: Kirigami.Units.smallSpacing
 
@@ -19,9 +19,8 @@ RowLayout {
         Layout.alignment: Qt.AlignVCenter
         text: compact.timeText
         font.pointSize: Kirigami.Theme.defaultFont.pointSize * compact.timeScale
-        font.bold: true
+        font.weight: Font.DemiBold
         color: Kirigami.Theme.textColor
-        opacity: compact.subLineMode === "none" ? 1.0 : 0.92
     }
 
     QQC2.Label {

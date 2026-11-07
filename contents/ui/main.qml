@@ -26,6 +26,18 @@ PlasmoidItem {
 
     readonly property bool withSeconds: Plasmoid.configuration.showSeconds
 
+    // 面板字号：小 / 标准 / 大
+    readonly property real panelTimeScale: {
+        switch (Plasmoid.configuration.panelTimeScale) {
+        case "small":
+            return 0.95
+        case "large":
+            return 1.45
+        default:
+            return 1.15
+        }
+    }
+
     function pad2(n) {
         return n < 10 ? "0" + n : "" + n
     }
@@ -53,6 +65,8 @@ PlasmoidItem {
         return ""
     }
 
+    preferredRepresentation: compactRepresentation
+
     Timer {
         interval: 1000
         running: true
@@ -68,15 +82,32 @@ PlasmoidItem {
                     + (today.termToday !== "" ? "　" + today.termToday : "")
                     + (holidayBadge !== "" ? "　" + holidayBadge : "")
 
-    // ===== 面板：只显示时间（第二行可配置） =====
-    compactRepresentation: Item {
+    // ===== 面板：只显示时间（第二行、字号可配置） =====
+    // 说明：compactRepresentation 的根必须是 MouseArea——
+    //   Plasma 6 不会替 applet 处理点击，数字时钟组件自己就是这么做的；
+    //   同时要把 Layout.minimumWidth/preferredWidth 绑到内容宽度，
+    //   否则面板按 0 宽布局，内容会溢出到屏幕边缘被裁掉。
+    compactRepresentation: MouseArea {
+        id: compactMouse
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        Layout.fillHeight: true
         implicitWidth: compactClock.implicitWidth + Kirigami.Units.smallSpacing
-        implicitHeight: Math.max(compactClock.implicitHeight, Kirigami.Units.gridUnit * 1.6)
+        implicitHeight: Math.max(compactClock.implicitHeight, Kirigami.Units.gridUnit * 1.4)
+        Layout.minimumWidth: implicitWidth
+        Layout.preferredWidth: Layout.minimumWidth
+        Layout.maximumWidth: Layout.minimumWidth
+
+        property bool wasExpanded: false
+
+        onPressed: wasExpanded = root.expanded
+        onClicked: root.expanded = !wasExpanded
 
         ClockCompact {
             id: compactClock
             anchors.centerIn: parent
             timeText: root.timeText(root.now, root.withSeconds)
+            timeScale: root.panelTimeScale
             subLineMode: Plasmoid.configuration.panelSubLine
             subText: {
                 if (Plasmoid.configuration.panelSubLine === "lunar") {
