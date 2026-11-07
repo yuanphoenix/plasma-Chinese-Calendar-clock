@@ -1,0 +1,44 @@
+name: 更新节假日数据
+
+on:
+  schedule:
+    - cron: "0 22 * * 1"   # 每周一 06:00 北京时间
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 检查明年数据是否已发布
+        id: check
+        run: |
+          python3 scripts/gen-holidays.py --require-year $(( $(date +%Y) + 1 )) || echo "stale=1" >> "$GITHUB_OUTPUT"
+
+      - name: 有差异就开 PR
+        if: steps.check.outputs.stale != '1'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(data): 更新节假日数据"
+          title: "chore(data): 更新节假日数据"
+          body: |
+            由 `scripts/gen-holidays.py` 从 [chinese-calendar](https://github.com/liriansu-opus/chinese-calendar) 重新生成。
+            请检查 diff 里的年份与节日名，确认后合并。
+          branch: holidays-auto-update
+          delete-branch: true
+          labels: data
+
+      - name: 数据陈旧则失败提醒
+        if: steps.check.outputs.stale == '1'
+        run: |
+          echo "::error::节假日数据还没覆盖明年，上游尚未发版或需要人工核对"
+          exit 1

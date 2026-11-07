@@ -49,6 +49,9 @@ def build(ns: dict):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--local", help="本地 constants.py 路径（离线生成）")
+    ap.add_argument("--require-year", type=int, action="append", default=[],
+                    metavar="YYYY",
+                    help="要求数据覆盖到该年，否则以退出码 1 结束（CI 用）")
     args = ap.parse_args()
 
     if args.local:
@@ -64,6 +67,10 @@ def main() -> int:
     years = sorted({d.year for d in holidays} | {d.year for d in workdays})
     print(f"覆盖年份：{years[0]}–{years[-1]}（{len(years)} 年）")
     print(f"放假日 {len(holidays)} 天，调休上班日 {len(workdays)} 天，调休 {len(in_lieu)} 天")
+
+    missing = [y for y in args.require_year if y > years[-1]]
+    if missing:
+        print(f"✗ 数据尚未覆盖：{missing}（上游还没发布，或国务院公告未出）", file=sys.stderr)
 
     def key(d: datetime.date) -> str:
         return f"{d.year:04d}-{d.month:02d}-{d.day:02d}"
@@ -105,6 +112,9 @@ def main() -> int:
 
     OUT.write_text("\n".join(lines), encoding="utf-8")
     print(f"已写入 {OUT.relative_to(ROOT)}（{OUT.stat().st_size / 1024:.1f} KB）")
+
+    if missing:
+        return 1
 
     # 抽查：2026 / 2027 春节与调休
     for probe in [datetime.date(2026, 2, 17), datetime.date(2026, 10, 1),

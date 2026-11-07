@@ -7,3 +7,6 @@ __pycache__/
 
 # 生成节假日数据时下载的上游文件
 /tmp/chinese_calendar_constants.py
+
+# 打包产物
+/dist/
