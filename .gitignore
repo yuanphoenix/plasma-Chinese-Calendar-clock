@@ -1,0 +1,9 @@
+# 渲染/构建临时产物
+*.qmlc
+*.jsc
+__pycache__/
+*.pyc
+.DS_Store
+
+# 生成节假日数据时下载的上游文件
+/tmp/chinese_calendar_constants.py

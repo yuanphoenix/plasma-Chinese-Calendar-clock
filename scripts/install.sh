@@ -1,0 +1,21 @@
+#!/bin/sh
+# 把部件安装（或更新）到当前用户的 Plasma 目录。不需要 root。
+set -e
+here=$(cd "$(dirname "$0")/.." && pwd)
+dest="${XDG_DATA_HOME:-$HOME/.local/share}/plasma/plasmoids/org.hermes.lunarcalendar"
+
+if [ -d "$dest" ] && [ "$(readlink -f "$dest")" != "$(readlink -f "$here")" ]; then
+    rm -rf "$dest"
+fi
+mkdir -p "$dest"
+rsync -a --delete \
+      --exclude '.git' --exclude 'preview' --exclude 'scripts' --exclude 'README.md' \
+      --exclude 'LICENSE' --exclude '.gitignore' \
+      "$here/" "$dest/"
+# 注意：不要对 $dest 再执行 kpackagetool6 --upgrade <同一路径>，
+# kpackagetool6 会把源目录当作临时包搬走并删掉它（踩过一次）。
+
+echo "已安装到：$dest"
+echo "如果面板上已经放着这个部件，执行以下命令让它重新加载："
+echo "  systemctl --user restart plasma-plasmashell"
+echo "或者：右键面板 → 添加部件 → 搜索「农历时钟」。"

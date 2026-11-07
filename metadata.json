@@ -1,0 +1,21 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Hermes"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "面板显示时间，悬停看农历，点击展开带节假日与调休的中式月历",
+        "Description[en]": "Panel clock with Chinese lunar calendar, solar terms and official holiday/workday marks",
+        "Icon": "clock",
+        "Id": "org.hermes.lunarcalendar",
+        "License": "GPL-2.0-or-later",
+        "Name": "农历时钟",
+        "Name[en]": "Lunar Clock",
+        "Version": "1.1.0",
+        "Website": ""
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
