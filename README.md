@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/logo-256.png" width="132" alt="农历时钟"></p>
 
-<h1 align="center">农历时钟 · Lunar Clock</h1>
+<h1 align="center">农历时钟 · Chinese Calendar Clock</h1>
 
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg)](LICENSE)
 [![Plasma 6](https://img.shields.io/badge/KDE%20Plasma-6-1d99f3.svg)](https://kde.org/plasma-desktop/)
@@ -8,7 +8,7 @@
 
 一个 KDE Plasma 6 桌面部件：**面板上就是个数字时钟，悬停显示农历，点开是带节假日与调休的中式月历。**
 
-补的是 Plasma 6 的一个空缺——KDE 5 的时钟日历有「备用日历 / 中国农历」，Plasma 6 把这个功能删掉了（`plasma-workspace/applets/digital-clock/configCalendar.qml` 里只剩周数、首日、事件插件三项）。
+补的是 Plasma 6 的一个空缺——KDE 5 的时钟日历有「备用日历 / 中国农历」，Plasma 6
 
 > **English:** a KDE Plasma 6 panel clock with the Chinese lunisolar calendar: lunar day/month, 24 solar terms, traditional festivals, and the State Council statutory holidays and make-up workdays (调休). Panel shows time only, hover for the lunar date, click to open a month grid.
 
@@ -22,7 +22,7 @@
 
 ## 功能
 
-- **面板只显示时间**：`HH:mm`，可选显示秒，可选第二行（农历日 / 公历日期）
+- **面板只显示时间**：`HH:mm`，可选第二行（农历日 / 公历日期）
 - **点击展开 / 再点收起**：面板部件自己处理点击（Plasma 6 不会代劳）
 - **悬停提示**：农历几月几日 + 干支 + 生肖 + 节气 + 今日放假/调休
 - **月历**：
@@ -37,7 +37,7 @@
 
 ### 从 KDE Store（推荐给普通用户）
 
-系统设置 → 面板 → 添加部件 → 获取新部件 → 搜索「农历时钟」。
+系统设置 → 面板 → 添加部件 → 获取新部件 → 搜索「Chinese Calendar Clock」。
 
 ### 从源码
 
@@ -55,7 +55,7 @@ cd plasma-Chinese-Calendar-clock
 
 ```sh
 ./scripts/build-package.sh
-kpackagetool6 --type Plasma/Applet --install dist/io.github.yuanphoenix.lunarclock-1.0.0.plasmoid
+kpackagetool6 --type Plasma/Applet --install dist/io.github.yuanphoenix.lunarclock-*.plasmoid
 ```
 
 ## 配置
