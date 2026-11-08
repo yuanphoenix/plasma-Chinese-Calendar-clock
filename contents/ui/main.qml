@@ -93,7 +93,7 @@ PlasmoidItem {
         cursorShape: Qt.PointingHandCursor
         Layout.fillHeight: true
         implicitWidth: compactClock.implicitWidth + Kirigami.Units.smallSpacing
-        implicitHeight: Math.max(compactClock.implicitHeight, Kirigami.Units.gridUnit * 1.4)
+        implicitHeight: Math.max(compactClock.implicitHeight + 2, Kirigami.Units.gridUnit * 1.5)
         Layout.minimumWidth: implicitWidth
         Layout.preferredWidth: Layout.minimumWidth
         Layout.maximumWidth: Layout.minimumWidth
