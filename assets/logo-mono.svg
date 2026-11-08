@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>农历时钟 · Lunar Clock</title>
+  <desc>月相盘：外环与 12 道刻度表示时钟，居中月牙表示农历。</desc>
+  <!-- 外环（表盘） -->
+  <circle cx="128" cy="128" r="99" fill="none" stroke="currentColor" stroke-width="15"/>
+  <!-- 12 道表刻度 -->
+  <g stroke="currentColor" stroke-width="8" stroke-linecap="round">
+    <line x1="128.0" y1="50.0" x2="128.0" y2="40.0"/>
+    <line x1="167.0" y1="60.5" x2="172.0" y2="51.8"/>
+    <line x1="195.5" y1="89.0" x2="204.2" y2="84.0"/>
+    <line x1="206.0" y1="128.0" x2="216.0" y2="128.0"/>
+    <line x1="195.5" y1="167.0" x2="204.2" y2="172.0"/>
+    <line x1="167.0" y1="195.5" x2="172.0" y2="204.2"/>
+    <line x1="128.0" y1="206.0" x2="128.0" y2="216.0"/>
+    <line x1="89.0" y1="195.5" x2="84.0" y2="204.2"/>
+    <line x1="60.5" y1="167.0" x2="51.8" y2="172.0"/>
+    <line x1="50.0" y1="128.0" x2="40.0" y2="128.0"/>
+    <line x1="60.5" y1="89.0" x2="51.8" y2="84.0"/>
+    <line x1="89.0" y1="60.5" x2="84.0" y2="51.8"/>
+  </g>
+  <!-- 月牙：一个圆减去另一个圆 -->
+  <mask id="moon-bite">
+    <rect width="256" height="256" fill="#fff"/>
+    <circle cx="149" cy="110" r="62" fill="#000"/>
+  </mask>
+  <circle cx="122" cy="136" r="58" fill="currentColor" mask="url(#moon-bite)"/>
+</svg>

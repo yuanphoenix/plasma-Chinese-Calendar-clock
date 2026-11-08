@@ -1,4 +1,6 @@
-# 农历时钟 · Lunar Clock
+<p align="center"><img src="assets/logo-256.png" width="132" alt="农历时钟"></p>
+
+<h1 align="center">农历时钟 · Lunar Clock</h1>
 
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg)](LICENSE)
 [![Plasma 6](https://img.shields.io/badge/KDE%20Plasma-6-1d99f3.svg)](https://kde.org/plasma-desktop/)
@@ -111,7 +113,8 @@ scripts/
   preview-*.qml               渲染用的临时窗口
 .github/workflows/
   update-holidays.yml         节假日数据自动更新
-preview/                      README 截图
+assets/                      logo（svg + 多尺寸 png）与 GitHub 封面图
+preview/                     README 截图
 docs/                         投稿用文案
 ```
 
