@@ -4,8 +4,8 @@
 分类：**KDE Plasma Extensions → Plasma 6 Applets**（或 “Plasma 6 Applets / Date and Time” 子类，按现有同类产品选）
 上传文件：`dist/io.github.yuanphoenix.lunarclock-1.0.0.plasmoid`（先跑 `./scripts/build-package.sh`）
 许可证：GPL-2.0-or-later
-源码：https://github.com/yuanphoenix/plasma-lunar-clock
-主页：https://github.com/yuanphoenix/plasma-lunar-clock
+源码：https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock
+主页：https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock
 
 ## 标题
 

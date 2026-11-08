@@ -2,7 +2,7 @@
 
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg)](LICENSE)
 [![Plasma 6](https://img.shields.io/badge/KDE%20Plasma-6-1d99f3.svg)](https://kde.org/plasma-desktop/)
-[![更新节假日数据](https://github.com/yuanphoenix/plasma-lunar-clock/actions/workflows/update-holidays.yml/badge.svg)](https://github.com/yuanphoenix/plasma-lunar-clock/actions/workflows/update-holidays.yml)
+[![更新节假日数据](https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock/actions/workflows/update-holidays.yml/badge.svg)](https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock/actions/workflows/update-holidays.yml)
 
 一个 KDE Plasma 6 桌面部件：**面板上就是个数字时钟，悬停显示农历，点开是带节假日与调休的中式月历。**
 
@@ -40,8 +40,8 @@
 ### 从源码
 
 ```sh
-git clone https://github.com/yuanphoenix/plasma-lunar-clock.git
-cd plasma-lunar-clock
+git clone https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock.git
+cd plasma-Chinese-Calendar-clock
 ./scripts/install.sh
 ```
 

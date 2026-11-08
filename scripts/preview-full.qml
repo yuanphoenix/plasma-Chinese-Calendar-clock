@@ -41,7 +41,7 @@ Window {
         running: true
         onTriggered: {
             win.contentItem.grabToImage(function (result) {
-                result.saveToFile("/home/tifa/code/plasma-lunar-clock/preview/full.png")
+                result.saveToFile(Qt.resolvedUrl("../preview/full.png").toString().replace(/^file:\/\//, ""))
                 console.log("saved preview/full.png")
                 Qt.quit()
             })
