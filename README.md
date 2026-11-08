@@ -133,7 +133,11 @@ node -e 'const L=require("/tmp/lunar.js"); console.log(L.solarToLunar(2026,11,7)
 ./scripts/render-preview.sh
 ```
 
-两个容易踩的坑，记在这里：面板部件的宽度必须绑到内容（`implicitWidth` / `Layout.minimumWidth`），否则面板按 0 宽布局、内容溢出被裁；点击展开要自己用 `MouseArea` 翻转 `expanded`，Plasma 6 不再替部件处理点击。
+三个容易踩的坑，记在这里：
+
+1. 面板部件的宽度必须绑到内容（`implicitWidth` / `Layout.minimumWidth`），否则面板按 0 宽布局、内容溢出被裁；
+2. 点击展开要自己用 `MouseArea` 翻转 `expanded`，Plasma 6 不再替部件处理点击；
+3. 配置页必须在 `contents/config/config.qml` 里用 `ConfigModel` 声明（`source` 相对 `contents/ui/`）。**光有 `configGeneral.qml` 不会被加载**——配置对话框只会显示「关于」和「快捷键」两个内置页，看起来就像没有任何选项。
 
 ## 许可
 
