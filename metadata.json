@@ -15,7 +15,7 @@
         "License": "GPL-2.0-or-later",
         "Name": "农历时钟",
         "Name[en]": "Lunar Clock",
-        "Version": "1.0.2",
+        "Version": "1.0.3",
         "Website": "https://github.com/yuanphoenix/plasma-Chinese-Calendar-clock"
     },
     "X-Plasma-API-Minimum-Version": "6.0"

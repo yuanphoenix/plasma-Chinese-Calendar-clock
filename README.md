@@ -110,6 +110,7 @@ scripts/
   install.sh                  安装 / 更新到 ~/.local/share
   build-package.sh            打包 .plasmoid
   render-preview.sh           生成 preview/ 截图（offscreen 渲染，无需 Plasma 会话）
+  preview-clip.qml            在面板真实高度（28px）里检查两行是否被裁
   preview-*.qml               渲染用的临时窗口
 .github/workflows/
   update-holidays.yml         节假日数据自动更新
