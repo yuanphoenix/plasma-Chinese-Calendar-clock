@@ -39,6 +39,7 @@
 
 系统设置 → 面板 → 添加部件 → 获取新部件 → 搜索「Chinese Calendar Clock」。
 
+https://store.kde.org/p/2381369
 ### 从源码
 
 ```sh
